@@ -1,12 +1,12 @@
-# Stellar DID
+# Stellar DID Registry
 
 [DID Specification](https://w3c.github.io/did-core/)
 
 ## Overview
 
-DID method for Stellar Network, built using the [Soroban Rust SDK](https://github.com/stellar/rs-soroban-sdk)
+DID method registry for Stellar Network, built using the [Soroban Rust SDK](https://github.com/stellar/rs-soroban-sdk)
 
-## DID Method
+## This DID method registry contract is intended for use with the DID-Method-Resolver
 
 ### DID Format
 
