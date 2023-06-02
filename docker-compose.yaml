@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  stellar:
+    image: stellar/quickstart:soroban-dev@sha256:57e8ab498bfa14c65595fbb01cb94b1cdee9637ef2e6634e59d54f6958c05bdb
+    container_name: stellar
+    ports:
+      - '8000:8000'
+    command:  --standalone --enable-soroban-rpc
