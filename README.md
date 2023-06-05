@@ -10,7 +10,7 @@ DID method registry for Stellar Network, built using the [Soroban Rust SDK](http
 
 ### DID Format
 
-``` did:stellr:<stellar_account_id> ```
+``` did:stllr:<stellar_account_id> ```
 
 ### Contract Deployments
 
