@@ -6,7 +6,14 @@
 
 DID method registry for Stellar Network, built using the [Soroban Rust SDK](https://github.com/stellar/rs-soroban-sdk)
 
-## This DID method registry contract is intended for use with the DID-Method-Resolver
+This Stellar DID registry contract is intended for use with:
+
+1. [Stellar Resolver Library](https://github.com/Mavennet/did-stellar-resolver)
+2. [Stellar DID Method Library](https://github.com/Mavennet/stellar-did)
+
+It is a low level library and is not intended for direct use by end users.
+
+For information about the Stellar DID method please consult the [Stellar DID Method Specification](
 
 ### DID Format
 
@@ -18,7 +25,7 @@ DID method registry for Stellar Network, built using the [Soroban Rust SDK](http
 | ------- | ------- |
 | Mainnet | Not Deployed |
 | Testnet | Not Deployed |
-| Futurenet | Not Deployed |
+| Futurenet | 2c8bf7ec1ee6beed6ec13b244e84a4ab3559c5fa2f33ea6b15f5bff332833001 |
 
 ## Development
 

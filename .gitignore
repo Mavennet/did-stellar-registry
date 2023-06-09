@@ -27,3 +27,5 @@ Cargo.lock
 # Internal docs
 
 SCOPE.md
+
+scripts/
