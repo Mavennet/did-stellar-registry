@@ -13,7 +13,7 @@ This Stellar DID registry contract is intended for use with:
 
 It is a low level library and is not intended for direct use by end users.
 
-For information about the Stellar DID method please consult the [Stellar DID Method Specification](
+For information about the Stellar DID method please consult the [Stellar DID Method Specification](https://github.com/Mavennet/did-stellar-resolver/blob/main/docs/did-method-spec.md)
 
 ### DID Format
 
