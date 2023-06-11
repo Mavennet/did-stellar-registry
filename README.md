@@ -42,7 +42,7 @@ To build with logs
 cargo build --target wasm32-unknown-unknown --release-with-logs
 ```
 
-NOTE: if you build with logs then all future calls should use the wasm path `target/wasm32-unknown-unknown/release-with-logs/stellar_did.wasm`
+NOTE: if you build with logs then all future calls should use the wasm path `target/wasm32-unknown-unknown/release-with-logs/stellar_did_registry.wasm`
 
 ### Tests
 
@@ -56,7 +56,7 @@ cargo test
 
 ```bash
 soroban contract invoke \                                                                                                                                                                                                                        Py base 01:55:41 PM
---wasm target/wasm32-unknown-unknown/release/stellar_did.wasm \
+--wasm target/wasm32-unknown-unknown/release/stellar_did_registry.wasm \
 --id 1 \
 -- \
 -- FUNCTION_NAME \
