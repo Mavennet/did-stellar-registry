@@ -22,7 +22,7 @@ pub fn set_attribute(
     // if an attribute with the same name exists then modify it, else add it
 
     identity.attributes.set(name, attr);
-    env.storage().set(&DataKey::Identity(id), &identity);
+    env.storage().instance().set(&DataKey::Identity(id), &identity);
     Ok(())
 }
 
@@ -31,6 +31,6 @@ pub fn remove_attribute(env: &Env, id: Address, name: String) -> Result<(), Erro
 
     identity.attributes.remove(name);
 
-    env.storage().set(&DataKey::Identity(id), &identity);
+    env.storage().instance().set(&DataKey::Identity(id), &identity);
     return Ok(());
 }

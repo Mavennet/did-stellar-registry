@@ -17,14 +17,14 @@ For information about the Stellar DID method please consult the [Stellar DID Met
 
 ### DID Format
 
-``` did:stllr:<stellar_account_id> ```
+`did:stllr:<stellar_account_id>`
 
 ### Contract Deployments
 
-| Network | Address |
-| ------- | ------- |
-| Mainnet | Soroban is not yet available on mainnet |
-| Futurenet | bfe3a307860e15409c7209b5acf81205fec3d571967fa163f820c5d2326575e5 |
+| Network   | Address                                                          |
+| --------- | ---------------------------------------------------------------- |
+| Mainnet   | Soroban is not yet available on mainnet                          |
+| Futurenet | 220b9aa877508d5a722b75ae1fc0f5b229cba707728053be11af2ddffbb98a2a |
 
 ## Development
 
@@ -32,7 +32,7 @@ For information about the Stellar DID method please consult the [Stellar DID Met
 
 ```bash
 
-cargo build --target wasm32-unknown-unknown --release 
+cargo build --target wasm32-unknown-unknown --release
 
 ```
 
@@ -61,7 +61,7 @@ soroban contract invoke \                                                       
 -- \
 -- FUNCTION_NAME \
 --PARAM_NAME_1 PARAM_VALUE_1 \
---PARAM_NAME_2 PARAM_VALUE_2 
+--PARAM_NAME_2 PARAM_VALUE_2
 ```
 
 ### Option 2: deploy to local docker network

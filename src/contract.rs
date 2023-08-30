@@ -6,9 +6,15 @@ use crate::event::{
 };
 use crate::identity::{read_identity, transfer_identity_ownership};
 use crate::storage_types::{Error, Identity};
-use soroban_sdk::{contractimpl, Address, Env, String, Symbol};
+use soroban_sdk::{contract, contractimpl, contractmeta, Address, Env, String, Symbol};
 
+#[contract]
 pub struct DIDStellarRegistry;
+
+contractmeta!(
+    key = "Description",
+    val = "DID method registry for the Stellar did method"
+);
 
 #[contractimpl]
 impl DIDStellarRegistry {
@@ -18,7 +24,7 @@ impl DIDStellarRegistry {
 
     // transfers ownership of Id from one user to another
 
-    pub fn transfer_ownership(
+    pub fn transfer(
         env: Env,
         id: Address,
         from: Address,

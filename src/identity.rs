@@ -7,19 +7,18 @@ pub fn read_identity(env: &Env, id: Address) -> Identity {
 
     return env
         .storage()
-        .get(&key)
-        .unwrap_or(Ok(Identity {
+        .instance().get(&key)
+        .unwrap_or(Identity {
             owner: id.clone(),
             delegates: map![&env],
             attributes: map![&env],
-        }))
-        .unwrap();
+        })
 }
 
 pub fn transfer_identity_ownership(env: &Env, id: Address, to: Address) -> Address {
     let key = DataKey::Identity(id);
 
-    env.storage().set(
+    env.storage().instance().set(
         &key,
         &Identity {
             owner: to.clone(),
