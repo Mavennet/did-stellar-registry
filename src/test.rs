@@ -1,18 +1,17 @@
 #![cfg(test)]
 extern crate std;
 use crate::storage_types::{Attribute, Delegation, Identity};
-use crate::{contract::DIDStellarRegistry, DIDStellarRegistryClient};
+use crate::{contract::DIDStellarRegistry, contract::DIDStellarRegistryClient};
 
-use soroban_sdk::{map, testutils::Address as _, testutils::Logger, Address, Env, String, Symbol};
+use soroban_sdk::{map, testutils::Address as _,log, Address, Env, String, Symbol,  testutils::AuthorizedInvocation, testutils::AuthorizedFunction, symbol_short, IntoVal};
+
 
 #[cfg(test)]
 mod tests {
 
-    use soroban_sdk::IntoVal;
 
     use super::*;
 
-    // // Get tests
     #[test]
     fn get_default_identity() {
         let env = Env::default();
@@ -44,10 +43,9 @@ mod tests {
         let id = Address::random(&env);
         let to = Address::random(&env);
 
-        let logs = env.logger().all();
-        std::println!("{}", logs.join("\n"));
+        log!(&env, "Hello {}", id);
 
-        client.transfer_ownership(&id, &id, &to);
+        client.transfer(&id, &id, &to);
 
         let result = client.identity(&id);
 
@@ -72,22 +70,22 @@ mod tests {
         let first_address = Address::random(&env);
         let second_address = Address::random(&env);
 
-        let logs = env.logger().all();
-        std::println!("{}", logs.join("\n"));
 
-        client.transfer_ownership(&id, &id, &first_address);
+        client.transfer(&id, &id, &first_address);
 
         assert_eq!(
             env.auths(),
             [(
                 // The owner of the identity is the only one who can transfer ownership
                 id.clone(),
-                // id of contract
-                contract_id.clone(),
-                // name of function
-                Symbol::new(&env, "transfer_ownership"),
-                // args
-                (id.clone(), id.clone(), first_address.clone()).into_val(&env)
+                AuthorizedInvocation {
+                    function: AuthorizedFunction::Contract((
+                        contract_id.clone(),
+                        symbol_short!("transfer"),
+                        (id.clone(), id.clone(), first_address.clone()).into_val(&env)
+                    )),
+                    sub_invocations: std::vec![]
+                }
             )]
         );
         let result = client.identity(&id);
@@ -101,18 +99,20 @@ mod tests {
             }
         );
 
-        client.transfer_ownership(&id, &first_address, &second_address);
+        client.transfer(&id, &first_address, &second_address);
 
         assert_eq!(
             env.auths(),
             [(
                 first_address.clone(),
-                // id of contract
-                contract_id.clone(),
-                // name of function
-                Symbol::new(&env, "transfer_ownership"),
-                // args
-                (id.clone(), first_address.clone(), second_address.clone()).into_val(&env)
+                AuthorizedInvocation {
+                    function: AuthorizedFunction::Contract((
+                        contract_id.clone(),
+                        symbol_short!("transfer"),
+                            (id.clone(), first_address.clone(), second_address.clone()).into_val(&env)
+                    )),
+                    sub_invocations: std::vec![]
+                }
             )]
         );
 
