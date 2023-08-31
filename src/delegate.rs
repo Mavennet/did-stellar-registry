@@ -22,7 +22,7 @@ pub fn set_delegate(
         },
     );
 
-    env.storage().instance().set(&DataKey::Identity(id), &identity);
+    env.storage().persistent().set(&DataKey::Identity(id), &identity);
 }
 
 pub fn remove_delegate(env: &Env, id: Address, delegate: Address) {
@@ -30,5 +30,5 @@ pub fn remove_delegate(env: &Env, id: Address, delegate: Address) {
 
     identity.delegates.remove(delegate.clone());
 
-    env.storage().instance().set(&DataKey::Identity(id), &identity);
+    env.storage().persistent().set(&DataKey::Identity(id), &identity);
 }

@@ -18,6 +18,10 @@ contractmeta!(
 
 #[contractimpl]
 impl DIDStellarRegistry {
+
+    pub fn hello(env: Env, user: Address) -> Address {
+        return user;
+    }
     pub fn identity(env: Env, user: Address) -> Identity {
         return read_identity(&env, user);
     }

@@ -10,6 +10,8 @@ use soroban_sdk::{map, testutils::Address as _,log, Address, Env, String, Symbol
 mod tests {
 
 
+    use soroban_sdk::testutils::Logs;
+
     use super::*;
 
     #[test]
@@ -22,6 +24,12 @@ mod tests {
         let user = Address::random(&env);
 
         let result = client.identity(&user);
+
+      
+        let logs = env.logs().all();
+
+        std::println!("{}", logs.join("\n"));
+
 
         assert_eq!(
             result,
