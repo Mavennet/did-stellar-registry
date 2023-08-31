@@ -7,7 +7,7 @@ pub fn read_identity(env: &Env, id: Address) -> Identity {
 
     return env
         .storage()
-        .instance().get(&key)
+        .persistent().get(&key)
         .unwrap_or(Identity {
             owner: id.clone(),
             delegates: map![&env],
@@ -18,7 +18,7 @@ pub fn read_identity(env: &Env, id: Address) -> Identity {
 pub fn transfer_identity_ownership(env: &Env, id: Address, to: Address) -> Address {
     let key = DataKey::Identity(id);
 
-    env.storage().instance().set(
+    env.storage().persistent().set(
         &key,
         &Identity {
             owner: to.clone(),
