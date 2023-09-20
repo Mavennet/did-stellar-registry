@@ -21,10 +21,10 @@ For information about the Stellar DID method please consult the [Stellar DID Met
 
 ### Contract Deployments
 
-| Network   | Address                                                          |
-| --------- | ---------------------------------------------------------------- |
-| Mainnet   | Soroban is not yet available on mainnet                          |
-| Futurenet | 220b9aa877508d5a722b75ae1fc0f5b229cba707728053be11af2ddffbb98a2a |
+| Network   | Address                                                  |
+| --------- | -------------------------------------------------------- |
+| Mainnet   | Soroban is not yet available on mainnet                  |
+| Futurenet | CDF7ETQM2PJKTJRMR4EZGMDYTRAU34WAPXQCM44ZMRELP6XYLB4NQTDP |
 
 ## Development
 
