@@ -20,12 +20,9 @@ Cargo.lock
 # Env files
 .env
 
-
 # Soroban files
 .soroban/
 
 # Internal docs
 
 SCOPE.md
-
-scripts/

@@ -24,6 +24,7 @@ For information about the Stellar DID method please consult the [Stellar DID Met
 | Network   | Address                                                  |
 | --------- | -------------------------------------------------------- |
 | Mainnet   | Soroban is not yet available on mainnet                  |
+| Testnet   | CADVHUKFQ5HF5SANSUARZO5QBGZSCYFFLICDCY5T2PHYLFQA32SA5QNG |
 | Futurenet | CDF7ETQM2PJKTJRMR4EZGMDYTRAU34WAPXQCM44ZMRELP6XYLB4NQTDP |
 
 ## Development
