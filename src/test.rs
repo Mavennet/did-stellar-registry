@@ -3,12 +3,14 @@ extern crate std;
 use crate::storage_types::{Attribute, Delegation, Identity};
 use crate::{contract::DIDStellarRegistry, contract::DIDStellarRegistryClient};
 
-use soroban_sdk::{map, testutils::Address as _,log, Address, Env, String, Symbol,  testutils::AuthorizedInvocation, testutils::AuthorizedFunction, symbol_short, IntoVal};
-
+use soroban_sdk::{
+    log, map, symbol_short,
+    testutils::{Address as _, AuthorizedFunction, AuthorizedInvocation},
+    Address, Env, String, Symbol,
+};
 
 #[cfg(test)]
 mod tests {
-
 
     use soroban_sdk::testutils::Logs;
 
@@ -25,11 +27,9 @@ mod tests {
 
         let result = client.identity(&user);
 
-      
         let logs = env.logs().all();
 
         std::println!("{}", logs.join("\n"));
-
 
         assert_eq!(
             result,
@@ -78,7 +78,6 @@ mod tests {
         let first_address = Address::random(&env);
         let second_address = Address::random(&env);
 
-
         client.transfer(&id, &id, &first_address);
 
         assert_eq!(
@@ -117,7 +116,7 @@ mod tests {
                     function: AuthorizedFunction::Contract((
                         contract_id.clone(),
                         symbol_short!("transfer"),
-                            (id.clone(), first_address.clone(), second_address.clone()).into_val(&env)
+                        (id.clone(), first_address.clone(), second_address.clone()).into_val(&env)
                     )),
                     sub_invocations: std::vec![]
                 }
